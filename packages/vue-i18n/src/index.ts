@@ -1,23 +1,25 @@
 import { initDev, initFeatureFlags } from './misc'
+import {
+  registerMessageCompiler,
+  compileToFunction
+} from '@intlify/core/src/runtime'
 
-export { generateFormatCacheKey, friendlyJSONstringify } from '@intlify/shared'
+// register message compiler at vue-i18n
+registerMessageCompiler(compileToFunction)
+
 export { Path, PathValue } from '@intlify/message-resolver'
-export { createParser, Parser } from '@intlify/message-compiler'
-export {
-  CompileError,
-  CompileDomain,
-  CompileErrorCodes
-} from '@intlify/message-compiler'
-export { CompileOptions, CompileErrorHandler } from '@intlify/message-compiler'
-export { baseCompile } from '@intlify/message-compiler'
-export { compile, clearCompileCache } from '@intlify/runtime'
 export {
   MessageFunction,
   MessageFunctions,
   PluralizationRule,
   LinkedModifiers
 } from '@intlify/runtime'
-export * from '@intlify/core'
+export {
+  TranslateOptions,
+  DateTimeOptions,
+  NumberOptions,
+  PostTranslationHandler
+} from '@intlify/core/src/runtime'
 export {
   VueMessageType,
   MissingHandler,
